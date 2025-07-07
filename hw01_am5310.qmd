@@ -78,5 +78,13 @@ ggplot(flights_age, aes(x = plane_age, y = dep_delay)) +
 
 ```{r}
 highest_dep_delay <- flights |>
-  
+  group_by(month, day) |>
+  summarise(med_dep_delay = median(dep_delay, na.rm = TRUE)) |>
+  arrange(desc(med_dep_delay)) |>
+  slice_head(n = 10)
+
+highest_dep_delay_flights <- flights |>
+  semi_join(highest_dep_delay, by = c("month", "day"))
+
+highest_dep_delay_flights
 ```
