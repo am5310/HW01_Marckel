@@ -57,4 +57,26 @@ pacman::p_load(pacman, tidyverse,
 
 -   **Problem 2**: Is there a relationship between the age of a plane and its delays?
 
+Based on the boxplot, older planes typically have less outliers of planes with extremely long delays. This could be due to the older planes having gone through routine maitenance for a longer period of time.
+
+```{r}
+flights_age <- flights |>
+  inner_join(planes, by = "tailnum") |>
+  mutate(plane_age = 2013 - year.y) |>
+  filter(!is.na(plane_age), !is.na(dep_delay))
+
+ggplot(flights_age, aes(x = plane_age, y = dep_delay)) +
+  geom_boxplot(aes(group = cut_width(plane_age, 5))) +
+  labs(
+    title = "Departure Delay vs Plane Age",
+    x = "Plane Age",
+    y = "Departure Delay"
+  )
+```
+
 -   **Problem 3**: Find the 10 days of the year that have the highest median departure delay, then select all flights from those 10 days.
+
+```{r}
+highest_dep_delay <- flights |>
+  
+```
