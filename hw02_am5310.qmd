@@ -52,6 +52,18 @@ Use and show R coding to calculate the standard deviation for each variable of t
 
 -   Body – the operations performed in each iteration
 
+```{r}
+std_dev <- vector(mode = "double", length = ncol(mtcars))
+
+for (i in seq_along(std_dev)) {
+  std_dev[i] <- sd(mtcars[[i]])
+}
+
+names(std_dev) <- colnames(mtcars)
+
+std_dev
+```
+
 ### Question 4:
 
 Write only one line of the code to return only the leap years fo years 2024, 3021, 2000 or 1800, 800, 5050, 600 and 7156. using subsetting with `[]` and without using built-in functions.
