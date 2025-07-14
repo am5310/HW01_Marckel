@@ -4,7 +4,6 @@ format: html
 editor: visual
 ---
 
-
 ## Instructions
 
 Complete the following exercises using the `lubridate` and `purrr` packages in R. Ensure that your solutions are optimized and use functional programming principles where applicable.
@@ -16,12 +15,18 @@ Complete the following exercises using the `lubridate` and `purrr` packages in R
 
 ## Exercise Functions:
 
-
-
 ### Question 1
 
 Write a function (using r code and structure demonstrated in class) to calculate a z score for a given observed value, a mean, and a standard deviation value. And then use your function to find a z score for the following problem. (Research the internet to find the formula used to calculate a z score)\
 Observed value = 25.77, mean = 23.54, standard deviation = 2.442
+
+```{r}
+z_score <- function(obs_val, mean, sd) {
+  (obs_val - mean) / sd
+}
+
+z_score(25.77, 23.54, 2.442)
+```
 
 ### Question 2
 
@@ -33,26 +38,21 @@ Also use R code to round your answer to the nearest tenth
 
 Use and show R coding to calculate the standard deviation for each variable of the data table `mtcars` using the `Special For Loop Method`, which includes three components:
 
-- Output – an object to store the results
+-   Output – an object to store the results
 
-- Sequence – the set of items to loop through
+-   Sequence – the set of items to loop through
 
-- Body – the operations performed in each iteration
-
+-   Body – the operations performed in each iteration
 
 ### Question 4:
-Write only one line of the code to return only the leap years fo years 2024, 3021, 2000 or 1800, 800, 5050, 600 and 7156.  using subsetting with `[]` and without using built-in functions.
 
-
+Write only one line of the code to return only the leap years fo years 2024, 3021, 2000 or 1800, 800, 5050, 600 and 7156. using subsetting with `[]` and without using built-in functions.
 
 ## Advanced Date Manipulation with lubridate
 
 ### Question 5:
 
 Generate a sequence of dates from **January 1, 2015** to **December 31, 2025**, spaced by every **two months**. Extract the **year**, **quarter**, and **ISO week number** for each date.
-
-
-
 
 ### Question 6:
 
@@ -70,8 +70,6 @@ Using `map()` and `map_dbl()`, compute the **mean**, **median**, and **standard 
 num_lists <- list(c(4, 16, 25, 36, 49), c(2.3, 5.7, 8.1, 11.4), c(10, 20, 30, 40, 50))
 ```
 
-
-
 ### Question 8: Combining lubridate and purrr
 
 Given a list of mixed date formats, use `map()` and `possibly()` from `purrr` to safely convert them to **Date** format and extract the **month name**.
@@ -80,23 +78,20 @@ Given a list of mixed date formats, use `map()` and `possibly()` from `purrr` to
 date_strings <- list("2023-06-10", "2022/12/25", "15-Aug-2021", "InvalidDate")
 ```
 
-
 ## Submission
 
-* Save your Quarto file after completing each problem, render it, then stage and commit the changes.\
+-   Save your Quarto file after completing each problem, render it, then stage and commit the changes.\
 
-* Include well-commented code and clear explanations.\
+-   Include well-commented code and clear explanations.\
 
-* Make at least **one commit per question**.\
+-   Make at least **one commit per question**.\
 
-* Submit the rendered file to **Canvas** and push it to your **GitHub repository**.\
+-   Submit the rendered file to **Canvas** and push it to your **GitHub repository**.\
 
-
-* Provide the link to your GitHub repository in the **Canvas gradebook** as a text submission.\
+-   Provide the link to your GitHub repository in the **Canvas gradebook** as a text submission.\
 
 🔹 **Each problem is worth 10 points.**\
 
 🔹 You will receive an additional **20 points** if you correctly push your completed file to GitHub and make at least one commit for each question.\
-
 
 **Good luck!**
