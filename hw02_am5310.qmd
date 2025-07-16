@@ -84,7 +84,7 @@ Generate a sequence of dates from **January 1, 2015** to **December 31, 2025**, 
 library(lubridate)
 library(tibble)
 
-dates <- seq(from = as.Date("2015-01-01"), to = as.Date("2025-12-31"), by = "2 months")
+dates <- seq(from = ymd("2015 01 01"), to = ymd("2025 12 31"), by = "2 months")
 
 date_info <- tibble(
   Date = dates,
@@ -102,6 +102,16 @@ Given the following dates, compute the difference in **months** and **weeks** be
 
 ``` r
 sample_dates <- c("2018-03-15", "2020-07-20", "2023-01-10", "2025-09-05")
+```
+
+```{r}
+sample_dates <- ymd(c("2018-03-15", "2020-07-20", "2023-01-10", "2025-09-05"))
+
+month_diff <- interval(sample_dates[-length(sample_dates)], sample_dates[-1]) / months(1)
+week_diff <- interval(sample_dates[-length(sample_dates)], sample_dates[-1]) / weeks(1)
+
+month_diff
+week_diff
 ```
 
 ### Question 7: Higher-Order Functions with purrr
