@@ -111,7 +111,7 @@ Print out a summary of the tables in this database.
 library(DBI)
 library(duckdb)
 
-practcon <- dbConnect(duckdb::duckdb(dbdir = "flights.duckdb", read_only = FALSE))
+practcon <- dbConnect(duckdb::duckdb(dbdir = "./data/flights.duckdb", read_only = FALSE))
 
 dbIsValid(practcon)
 dbListTables(practcon)
