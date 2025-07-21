@@ -107,7 +107,7 @@ Print out a summary of the tables in this database.
 
 -   Answer the following question using SQL.
 
-```{r}
+```{r, echo = FALSE, comment = ""}
 library(DBI)
 library(duckdb)
 
@@ -123,14 +123,23 @@ writeLines(codechunk)
 result <- dbGetQuery(practcon, "SELECT * FROM flights LIMIT 5;")
 
 print(result)
+```
 
+```{sql, connection=practcon, echo=FALSE, eval=FALSE}
 
-SELECT * FROM flights LIMIT 5;
+DESCRIBE;
 ```
 
 ### Problem 2: Select Flights from a Specific Carrier
 
 Write a SQL query to find all flights from the carrier "United Air Lines Inc.".
+
+```{sql connection=practcon}
+
+SELECT *
+FROM flights
+WHERE carrier = 'UA';
+```
 
 ### Problem 3: Count the Number of Flights for Each Carrier
 
